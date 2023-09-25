@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB CRUD</title>
+</head>
+<body>
+
+    <h1>WELCOME TO MongoDB-CRUD </h1>
+    {{msg}}
+    <br>
+
+    {{#if edit_id}}
+
+     <h3>Edit</h3>
+     <br>
+     <hr>
+     <br>
+    
+    <form action="/update-book/{{edit_id}}" method="post">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" value="{{edit_book.title}}">
+        <br><br>
+          <label for="author">Author:</label>
+        <input type="text" name="author" id="author" value="{{edit_book.author}}">
+         <br><br>
+         <input type="submit">
+    
+    </form>
+    <br><br>
+
+    {{else}}
+
+    <h3>Create</h3>
+     <br>
+     <hr>
+     <br>
+    
+    <form action="/store-book" method="post">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title">
+        <br><br>
+          <label for="author">Author:</label>
+        <input type="text" name="author" id="author">
+         <br><br>
+         <input type="submit">
+    
+    </form>
+    <br><br>
+
+    
+    {{/if}}
+
+    <ul>
+        {{#each books}}
+        <li>{{this.title}} - {{ this.author}} <a href="/?edit_id={{this._id}}">Edit</a> <a href="/?delete_id={{this._id}}" onclick="return confirm('Are you sure you want to delete?')">Delete</a></li>
+        {{/each}}
+    </ul>
+    
+</body>
+</html>

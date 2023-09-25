@@ -1,0 +1,4 @@
+npm init
+npm i -g nodemon
+npm i --s express express-handlebars body-parser
+npm i mongodb
