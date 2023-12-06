@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+
+    <style>
+    html,body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color:#FFF;
+    }
+
+    #wrapper div,#wrapper h2{
+        display:flex;
+        justify-content: center;
+        
+    }
+
+    h2{
+        color: chartreuse;
+        letter-spacing: 4px;
+        font-weight: bold;
+    
+    }
+    input{
+        border-radius: 10px;
+        margin-top:30px;
+        height:2em;
+        width:250px;
+        padding-left:10px;
+        outline: none;
+        font-weight: bold;
+    }
+
+    input:active{
+        border:none;
+    }
+    #wrapper{
+        height:500px;
+        width:400px;
+        margin:200px auto;
+        background-color:rgba(1, 2, 3, .1);
+        border-radius:10px;
+        padding:30px;
+    }
+
+    button{
+        margin-top:20px;
+        background-color:#ffeba7;
+        border-radius: 10px;
+        height: 44px;
+        font-weight: bold;
+        font-size: 1rem;
+        padding: 0 30px;
+        letter-spacing: 1px;
+        border: none;
+        color: #102770;
+    }
+
+    button:hover{
+        cursor:pointer;
+    }
+    #result{
+        color:white;
+        margin-top:20px;
+        font-size:32px;
+    }
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+            <h2>Converter</h2>
+        <div class="inputdiv">
+            <input type="text" id="input" placeholder="Enter number">
+        </div>
+        <div >
+            <button id="btm" onclick="convert()">submit</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+
+        function convert(){
+            let val = Number(document.getElementById("input").value);
+            let cal = val/2.54;
+            let res = document.getElementById("result");
+            res.innerHTML = cal.toFixed(2) + " inches";
+        }
+
+    </script>
+    
+</body>
+</html>
